@@ -17,8 +17,9 @@
     </div>
 
     <!-- Hamburger Menu -->
+        <!-- Hamburger Menu -->
     <div class="hamburger-menu">
-        <input type="checkbox" id="menu-toggle">
+        <input type="checkbox" id="menu-toggle" class="menu-toggle">
         <label for="menu-toggle" class="hamburger-btn">
             <span></span>
             <span></span>
@@ -27,13 +28,17 @@
         <nav class="sidebar-nav">
             <div class="sidebar-header">
                 <div class="logo">Abhishek Tripathi</div>
+                <label for="menu-toggle" class="close-btn">
+                    <i class="fas fa-times"></i>
+                </label>
             </div>
             <ul class="nav-links">
-                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-                <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-                <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
-                <li><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></li>
-                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+                <li><label for="menu-toggle"><a href="#home"><i class="fas fa-home"></i> Home</a></label></li>
+                <li><label for="menu-toggle"><a href="#about"><i class="fas fa-user"></i> About</a></label></li>
+                <li><label for="menu-toggle"><a href="#skills"><i class="fas fa-code"></i> Skills</a></label></li>
+                <li><label for="menu-toggle"><a href="#achievements"><i class="fas fa-trophy"></i> Achievements</a></label></li>
+                <li><label for="menu-toggle"><a href="#resume"><i class="fas fa-file-alt"></i> Resume</a></label></li>
+                <li><label for="menu-toggle"><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></label></li>
             </ul>
             <div class="sidebar-footer">
                 <div class="social-icons">
@@ -43,6 +48,7 @@
                 </div>
             </div>
         </nav>
+        <label for="menu-toggle" class="menu-overlay"></label>
     </div>
 
     <!-- Main Content -->
@@ -128,9 +134,6 @@
                         </div>
                     </div>
 
-                   
-                    
-           
                     <div class="skill-card animate__animated animate__fadeInUp" data-delay="0.3s">
                         <div class="skill-icon">
                             <i class="leetcode.png"></i>
@@ -154,6 +157,29 @@
                 </div>
             </div>
         </section>
+            <!-- Achievements Section -->
+    <section id="achievements" class="achievements section">
+        <div class="container">
+            <h2 class="section-title">My <span>Achievements</span></h2>
+            <div class="achievements-container">
+                <div class="achievement-card animate__animated animate__fadeInUp">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="achievement-content">
+                        <h3>Appinventiv 'Edu Boost' Scholarship</h3>
+                        <p class="issuer">Issued by Buddy4Study · Apr 2025</p>
+                        <p class="description">Awarded for outstanding academic performance and potential in technology innovation.</p>
+                        <div class="achievement-link">
+                            <a href="schloship.png" class="btn btn-small">View Certificate</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add more achievement cards here as needed -->
+            </div>
+        </div>
+    </section>
+
 
         <!-- Resume Section -->
         <section id="resume" class="resume section">
