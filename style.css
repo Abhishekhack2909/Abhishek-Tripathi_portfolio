@@ -1190,3 +1190,29 @@ a {
         right: 20px;
     }
 }
+/* LeetCode Specific Styles */
+.leetcode-logo {
+    width: 60px;
+    height: auto;
+    filter: drop-shadow(0 0 5px rgba(255, 161, 22, 0.5));
+    transition: var(--transition);
+}
+
+.leetcode-badge {
+    display: block;
+    margin-top: 15px;
+    transition: var(--transition);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.leetcode-badge:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 161, 22, 0.3);
+}
+
+.leetcode-count {
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.1em;
+}

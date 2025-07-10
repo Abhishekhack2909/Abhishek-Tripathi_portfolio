@@ -142,16 +142,19 @@
                         </div>
                     </div>
 
-                    <div class="skill-card animate__animated animate__fadeInUp" data-delay="0.3s">
-                        <div class="skill-icon">
-                            <i class="leetcode.png"></i>
-                        </div>
-                        <h3>LeetCode</h3>
-                        <p>Solved 70+ Problems including Binary Tree, Stack, Linked-List etc.</p>
-                        <div class="skill-progress">
-                            <div class="progress-bar" style="width: 75%"></div>
-                        </div>
-                    </div>
+                  <div class="skill-card animate__animated animate__fadeInUp" data-delay="0.3s">
+    <div class="skill-icon">
+        <img src="https://leetcode.com/static/images/LeetCode_logo_rvs.png" alt="LeetCode" class="leetcode-logo">
+    </div>
+    <h3>LeetCode</h3>
+    <p>Solved <span class="leetcode-count">70+</span> Problems including Binary Tree, Stack, Linked-List etc.</p>
+    <div class="skill-progress">
+        <div class="progress-bar" style="width: 75%"></div>
+    </div>
+    <a href="https://leetcode.com/u/binarybard29/" target="_blank" class="leetcode-badge">
+        <img src="https://img.shields.io/badge/dynamic/json?style=for-the-badge&labelColor=black&color=%23ffa116&label=Solved&query=solved&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2Fyourusername&logo=leetcode&logoColor=yellow" alt="binarybard29">
+    </a>
+</div>
                     <div class="skill-card animate__animated animate__fadeInUp" data-delay="0.4s">
                         <div class="skill-icon">
                             <i class="fas fa-mobile-alt"></i>
@@ -287,7 +290,7 @@
     </footer>
 
     <script>
-        // Set current year in footer
+       
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
     <script>
@@ -297,26 +300,26 @@
         
         themeButtons.forEach(button => {
             button.addEventListener('click', function() {
-                // Remove active class from all buttons
+              
                 themeButtons.forEach(btn => btn.classList.remove('active'));
                 
-                // Add active class to clicked button
+             
                 this.classList.add('active');
                 
-                // Set the theme
+           
                 const theme = this.getAttribute('data-theme');
                 document.body.className = theme + '-theme';
                 
-                // Save preference to localStorage
+               
                 localStorage.setItem('theme', theme);
             });
         });
         
-        // Check for saved theme preference
+        
         const savedTheme = localStorage.getItem('theme') || 'black';
         document.body.className = savedTheme + '-theme';
         
-        // Set the active button
+       
         document.querySelector(`.theme-btn[data-theme="${savedTheme}"]`).classList.add('active');
     });
 </script>
@@ -326,6 +329,44 @@
         this.classList.add('form-submitted');
         setTimeout(() => this.reset(), 3000);
     });
+</script>
+<script>
+    // LeetCode Stats Updater
+document.addEventListener('DOMContentLoaded', function() {
+    
+    const leetcodeUsername = 'binarybard29';
+    
+    
+    const badge = document.querySelector('.leetcode-badge img');
+    if (badge) {
+        badge.src = `https://img.shields.io/badge/dynamic/json?style=for-the-badge&labelColor=black&color=%23ffa116&label=Solved&query=solved&url=https%3A%2F%2Fleetcode-badge.vercel.app%2Fapi%2Fusers%2F${leetcodeUsername}&logo=leetcode&logoColor=yellow`;
+        badge.alt = `LeetCode user ${binarybard29}`;
+    }
+    
+    
+    const leetcodeLink = document.querySelector('.leetcode-badge');
+    if (leetcodeLink) {
+        leetcodeLink.href = `https://leetcode.com/${binarybard29}/`;
+    }
+    
+  
+    fetch(`https://leetcode-badge.vercel.app/api/users/${binarybard29}`)
+        .then(response => response.json())
+        .then(data => {
+            const countElement = document.querySelector('.leetcode-count');
+            if (countElement && data.solved) {
+                countElement.textContent = data.solved;
+            }
+        })
+        .catch(error => {
+            console.log('Error fetching LeetCode stats:', error);
+            // Fallback to static count if API fails
+            const countElement = document.querySelector('.leetcode-count');
+            if (countElement) {
+                countElement.textContent = '70+';
+            }
+        });
+});
 </script>
 </body>
 </html>
