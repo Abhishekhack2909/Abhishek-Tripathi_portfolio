@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Abhishek Tripathi | Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -100,6 +101,7 @@
                                 <span><i class="fas fa-university"></i> University:</span>
                                 <span>VIT University</span>
                             </div>
+                            
                             <div class="detail-item">
                                 <span><i class="fas fa-envelope"></i> Email:</span>
                                 <span>abhishektripathi317123@gmail.com</span>
@@ -316,6 +318,13 @@
         
         // Set the active button
         document.querySelector(`.theme-btn[data-theme="${savedTheme}"]`).classList.add('active');
+    });
+</script>
+<script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        this.classList.add('form-submitted');
+        setTimeout(() => this.reset(), 3000);
     });
 </script>
 </body>
