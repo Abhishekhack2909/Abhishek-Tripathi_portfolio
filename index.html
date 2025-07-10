@@ -10,11 +10,15 @@
 </head>
 <body>
     <!-- Theme Toggle -->
-    <div class="theme-toggle">
-        <button class="theme-btn black-theme active" data-theme="black"></button>
-        <button class="theme-btn white-theme" data-theme="white"></button>
-        <button class="theme-btn red-theme" data-theme="red"></button>
-    </div>
+    
+<div class="theme-toggle">
+    <button class="theme-btn black-theme active" data-theme="black" title="Night Mode">
+        <i class="fas fa-moon"></i>
+    </button>
+    <button class="theme-btn white-theme" data-theme="white" title="Day Mode">
+        <i class="fas fa-sun"></i>
+    </button>
+</div>
 
     <!-- Hamburger Menu -->
         <!-- Hamburger Menu -->
@@ -84,7 +88,9 @@
                     <div class="about-text animate__animated animate__fadeInRight">
                         <p>Hello! I'm Abhishek Tripathi, a passionate 2nd year Computer Science student at VIT University.</p>
                         <p>I'm deeply enthusiastic about Data Structures and Algorithms, and I love solving complex problems. As a web developer, I enjoy creating beautiful, functional websites and applications.</p>
-                        <p>When I'm not coding, you can find me participating in coding competitions, learning new technologies, or contributing to open-source projects.</p>
+                        <p>When I'm not coding, you can find me participating in coding competitions, learning new technologies, or contributing to open-source projects.
+                       <p></p>
+                        </p>
                         <div class="about-details">
                             <div class="detail-item">
                                 <span><i class="fas fa-graduation-cap"></i> Degree:</span>
@@ -139,7 +145,7 @@
                             <i class="leetcode.png"></i>
                         </div>
                         <h3>LeetCode</h3>
-                        <p>Solved 60+ Problems including Binary Tree, Stack, Linked-List etc.</p>
+                        <p>Solved 70+ Problems including Binary Tree, Stack, Linked-List etc.</p>
                         <div class="skill-progress">
                             <div class="progress-bar" style="width: 75%"></div>
                         </div>
@@ -175,7 +181,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- Add more achievement cards here as needed -->
+                
             </div>
         </div>
     </section>
@@ -282,5 +288,35 @@
         // Set current year in footer
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+    <script>
+    // Theme switching functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const themeButtons = document.querySelectorAll('.theme-btn');
+        
+        themeButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                themeButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Set the theme
+                const theme = this.getAttribute('data-theme');
+                document.body.className = theme + '-theme';
+                
+                // Save preference to localStorage
+                localStorage.setItem('theme', theme);
+            });
+        });
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme') || 'black';
+        document.body.className = savedTheme + '-theme';
+        
+        // Set the active button
+        document.querySelector(`.theme-btn[data-theme="${savedTheme}"]`).classList.add('active');
+    });
+</script>
 </body>
 </html>
