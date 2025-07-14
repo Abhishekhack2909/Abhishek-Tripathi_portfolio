@@ -1216,3 +1216,73 @@ a {
     font-weight: bold;
     font-size: 1.1em;
 }
+/* Updated Background Variables */
+:root {
+    /* Dark Theme */
+    --primary-color: #121212;
+    --secondary-color: #1a1a2e; 
+    --bg-color: #0d0d0d;        
+    --pattern-opacity: 0.2;    
+}
+
+.white-theme {
+    /* Light Theme */
+    --primary-color: #f8f9fa;
+    --secondary-color: #e9ecef;
+    --bg-color: #ffffff;
+    --pattern-opacity: 0.1;
+}
+
+/* Smooth Gradient Background */
+body {
+    background: linear-gradient(135deg, 
+        var(--primary-color) 0%, 
+        var(--secondary-color) 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Enhanced Hero Section */
+.hero {
+    background: linear-gradient(145deg, 
+        var(--primary-color) 0%, 
+        var(--secondary-color) 70%,
+        rgba(255, 0, 0, 0.15) 100%); /* Subtle red accent */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Improved Pattern Background */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 25% 25%, 
+            rgba(255,255,255,0.1) 0%, 
+            transparent 50%),
+        url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjA1KSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+    opacity: var(--pattern-opacity);
+    z-index: -1;
+}
+
+/* Section Backgrounds */
+.section {
+    background-color: rgba(0, 0, 0, 0.2); /* Slight overlay */
+    backdrop-filter: blur(8px);
+    border-radius: 16px;
+    margin: 2rem;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* White Theme Adjustments */
+.white-theme .section {
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
